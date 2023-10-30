@@ -15,28 +15,34 @@ public class Pizza {
     private int calories;
     private double price;
     private List<Topping> toppingList;
+    private boolean isXl=false;
 
-    public Pizza(String name,List<Topping> toppingList){
+    public Pizza(String name,List<Topping> toppingList,boolean isXl){
         this.name=name;
-        this.price=setPrice(toppingList);
+        this.price=setPrice(toppingList,isXl);
         this.toppingList=toppingList;
-        this.calories=setCalories(toppingList);
+        this.calories=setCalories(toppingList,isXl);
+        this.isXl=isXl;
     }
-    public int setCalories(List<Topping> toppingList){
+    public int setCalories(List<Topping> toppingList,boolean isXl){
        int tot=1012;
        if(toppingList!=null){
            for(int i=0;i<toppingList.size();i++){
                tot+=toppingList.get(i).getCalories();
            }
        }
-
-       return tot;
+if(isXl) return tot+=(tot*5)/100;
+else return tot;
     }
-    public double setPrice(List<Topping> t){
+    public double setPrice(List<Topping> t,boolean isXl){
         double tot=4.30;
-        for(int i=0;i<t.size();i++){
-            tot+=t.get(i).getPrice();
+        if(t!=null){
+            for(int i=0;i<t.size();i++){
+                tot+=t.get(i).getPrice();
+            }
         }
-        return tot;
+
+        if(isXl) return tot+=(tot*10)/100;
+        else return tot;
     }
 }

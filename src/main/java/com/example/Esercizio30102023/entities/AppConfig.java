@@ -37,7 +37,7 @@ public class AppConfig {
        List<Topping> tList = new ArrayList<>();
        tList.add(toppingTomatoBean());
        tList.add(toppingCheeseBean());
-       return new Pizza("Pizza Margherita",tList);
+       return new Pizza("Pizza Margherita",tList,false);
    }
    @Bean(name = "hawaiian_pizza")
     public Pizza pizzaHawaiianBean(){
@@ -46,7 +46,7 @@ public class AppConfig {
        tList.add(toppingCheeseBean());
        tList.add(toppingHamBean());
        tList.add(toppingPineappleBean());
-       return new Pizza("Hawaiian Pizza",tList);
+       return new Pizza("Hawaiian Pizza",tList,false);
    }
     @Bean(name = "salami_pizza")
     public Pizza pizzaSalamiBean(){
@@ -54,7 +54,16 @@ public class AppConfig {
         tList.add(toppingTomatoBean());
         tList.add(toppingCheeseBean());
         tList.add(toppingSalamiBean());
-        return new Pizza("Salami Pizza",tList);
+        return new Pizza("Salami Pizza",tList,false);
+    }
+
+    @Bean(name = "salami_pizza_xl")
+    public Pizza pizzaSalamiXlBean(){
+        List<Topping> tList = new ArrayList<>();
+        tList.add(toppingTomatoBean());
+        tList.add(toppingCheeseBean());
+        tList.add(toppingSalamiBean());
+        return new Pizza("Salami Pizza",tList,true);
     }
 
     @Bean(name = "lemonade")
@@ -78,6 +87,7 @@ public class AppConfig {
        pizzaList.add(pizzaMargheritaBean());
        pizzaList.add(pizzaHawaiianBean());
        pizzaList.add(pizzaSalamiBean());
+       pizzaList.add(pizzaSalamiXlBean());
 
        drinkList.add(lemonadeBean());
        drinkList.add(waterBean());
