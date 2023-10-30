@@ -1,5 +1,6 @@
 package com.example.Esercizio30102023.entities;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@Slf4j
 public class AppConfig {
    @Bean(name = "toppings_tomato")
     public Topping toppingTomatoBean(){
@@ -53,5 +55,34 @@ public class AppConfig {
         tList.add(toppingCheeseBean());
         tList.add(toppingSalamiBean());
         return new Pizza("Salami Pizza",tList);
+    }
+
+    @Bean(name = "lemonade")
+    public Drink lemonadeBean(){
+       return new Drink("Lemonade",128,1.29);
+    }
+    @Bean(name = "water")
+    public Drink waterBean(){
+        return new Drink("Water",0,1.29);
+    }
+    @Bean(name = "wine")
+    public Drink wineBean(){
+        return new Drink("Wine",607,7.49);
+    }
+
+    @Bean(name = "menu")
+    public Menu menuBean(){
+       List<Pizza> pizzaList=new ArrayList<>();
+       List<Drink> drinkList=new ArrayList<>();
+
+       pizzaList.add(pizzaMargheritaBean());
+       pizzaList.add(pizzaHawaiianBean());
+       pizzaList.add(pizzaSalamiBean());
+
+       drinkList.add(lemonadeBean());
+       drinkList.add(waterBean());
+       drinkList.add(wineBean());
+
+       return new Menu(pizzaList,drinkList);
     }
 }

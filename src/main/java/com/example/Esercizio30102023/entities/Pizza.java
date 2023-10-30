@@ -24,15 +24,18 @@ public class Pizza {
     }
     public int setCalories(List<Topping> toppingList){
        int tot=1012;
-       for(int i=0;i<toppingList.size();i++){
-           tot+=toppingList.get(i).getCalories();
+       if(toppingList!=null){
+           for(int i=0;i<toppingList.size();i++){
+               tot+=toppingList.get(i).getCalories();
+           }
        }
+
        return tot;
     }
     public double setPrice(List<Topping> t){
         double tot=4.30;
-        for(int i=0;i<toppingList.size();i++){
-            tot+=toppingList.get(i).getPrice();
+        for(int i=0;i<t.size();i++){
+            tot+=t.get(i).getPrice();
         }
         return tot;
     }
