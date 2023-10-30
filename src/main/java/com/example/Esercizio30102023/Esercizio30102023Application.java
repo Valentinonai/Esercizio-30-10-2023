@@ -16,7 +16,7 @@ public class Esercizio30102023Application {
 
 		AnnotationConfigApplicationContext ctx =new AnnotationConfigApplicationContext(Esercizio30102023Application.class);
 
-		Menu m= (Menu) ctx.getBean("menuBean");
+		Menu m= (Menu) ctx.getBean("menu");
 //		Il metodo seguente va bene solo se c'è un unico bean il metodo sopra è più specifico
 //		Menu m= (Menu) ctx.getBean(Menu.class);
 
