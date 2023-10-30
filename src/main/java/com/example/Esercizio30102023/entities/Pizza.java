@@ -16,7 +16,7 @@ public class Pizza {
     private double price;
     private List<Topping> toppingList;
 
-    public Pizza(String name,double price,List<Topping> toppingList){
+    public Pizza(String name,List<Topping> toppingList){
         this.name=name;
         this.price=setPrice(toppingList);
         this.toppingList=toppingList;
