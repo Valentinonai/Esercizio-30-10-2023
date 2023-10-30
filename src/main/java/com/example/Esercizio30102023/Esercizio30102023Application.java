@@ -17,7 +17,7 @@ public class Esercizio30102023Application {
 		AnnotationConfigApplicationContext ctx =new AnnotationConfigApplicationContext(Esercizio30102023Application.class);
 
 		Menu m=ctx.getBean(Menu.class);
-		System.out.println();
+
 
 		log.info(String.valueOf(m));
 		ctx.close();
