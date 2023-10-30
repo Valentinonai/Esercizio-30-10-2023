@@ -2,13 +2,25 @@ package com.example.Esercizio30102023.entities;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-public class Topping {
+
+public class Topping extends Item {
     private String name;
-    private int calories;
-    private double price;
+
+    public Topping(String name,int calories, double price ) {
+        super(calories, price);
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Topping{" +
+                "name='" + name + '\'' +
+                ", calories=" + calories +
+                ", price=" + price +
+                '}';
+    }
 }
